@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --main-desktop-font-size: 30px;
+  --main-desktop-font-size: 24px;
   --main-pad-font-size: calc(var(--main-desktop-font-size) * 4.8 / 6);
   /* --main-phone-font-size: 15px; */
   --main-background-color: #333;
   --main-text-color: #fff;
+  --main-color: #03a8f4;
   --main-desktop-border-color: #111;
   --header-toggle-width: 30px;
   --header-toggle-pad-width: calc(var(--header-toggle-width) * 5 / 6);
@@ -13,37 +14,45 @@
   --screen-desktop-padding-left-right: 100px;
   --screen-pad-padding-top-bottom: 10px;
   --screen-pad-padding-left-right: 30px;
-  --footer-icon-width: 30px;
-  --footer-icon-pad-width: calc(var(--footer-icon-pad-width) * 5 % 6)
+  --footer-icon-with: 30px;
+  --footer-icon-pad-with: calc(var(--footer-icon-with) * 5 /6) --text-description-h1-desktop-size: 3rem;
+  --text-description-h2-desktop-size: 2.5rem;
+  --text-description-p-desktop-size: 1rem;
+
+  --text-description-h1-pad-size: 2.5rem;
+  --text-description-h2-pad-size: 2rem;
+  --text-description-p-pad-size: 1rem;
 }
 
 * {
   margin: 0;
-  padding: 0;   
+  padding: 0;
   box-sizing: border-box;
-  text-decoration: 0;
+  text-decoration: none;
   -webkit-user-drag: none;
 }
 
-html, body {
+html,
+body {
+  all: unset;
   width: 100vw;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
   font-size: var(--main-desktop-font-size);
-  background: var(--main-background-color); 
-  color: var(--main-text-color);
-
-
-}
-
-a{
+  background: var(--main-background-color);
   color: var(--main-text-color);
 }
 
-.main-structure, .main-structure header, .main-structure .content, .main-structure footer {
+a {
+  color: var(--main-text-color);
+}
+
+.main-structure,
+.main-structure header,
+.main-structure .content,
+.main-structure footer {
   width: 100%;
-  border: 5px dashed var(--main-desktop-border-color);
-
+  /* border: 5px dashed var(--main-desktop-border-color) */
 }
 
 .main-structure {
@@ -54,25 +63,29 @@ a{
   align-items: center;
 }
 
+
+.main-structure footer,
 .main-structure header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.main-structure header, .main-structure .content, .main-structure footer{
+.main-structure header,
+.main-structure .content,
+.main-structure footer {
   padding: var(--screen-desktop-padding-top-bottom) var(--screen-desktop-padding-left-right);
   transition: 0.5s;
 }
 
 header .menu-logo {
-background: url(/src/icons/menu.svg);
-width: var(--header-toggle-width);
-height: var(--header-toggle-width);
-background-size: var(--header-toggle-width);
-background-repeat: no-repeat;
-background-position: center;
-filter: invert(1);
+  background: url('/src/icons/menu.svg');
+  width: var(--header-toggle-width);
+  height: var(--header-toggle-width);
+  background-size: var(--header-toggle-width);
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: invert(1);
 }
 
 .main-structure footer {
@@ -81,35 +94,123 @@ filter: invert(1);
   gap: 30px;
 }
 
-.main-structure footer a img{
+
+.main-structure footer a img {
   filter: invert(1);
-  width: var(--footer-icon-width);
+  width: var(--footer-icon-with)
 }
 
 
-@media (max-width:1200px) {
-   .main-structure {
-    font-size: var(--main-pad-font-size);
-   }
+.main-structure .content video {
+  position: absolute;
+  /* top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 
-   .main-structure header, .main-structure .content, .main-structure footer{
-    padding: var(--screen-pad-padding-top-bottom) var(--screen-pad-padding-left-right);
-  }
- 
-   .main-structure header .menu-logo {
-    width: var(--header-toggle-pad-width);
-    height: var(--header-toggle-pad-width);
-    background-size: var(--header-toggle-width);
-   }
-   
-   .main-structure footer a img{
-    filter: invert(1);
-    width: var(--footer-icon-pad-width);
+.content .text-description h1 {
+  font-size: var(--text-description-h1-desktop-size);
+  line-height: 1em;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5),
+    -1px -1px 5px rgba(255, 255, 255, 0.5);
+}
+
+.content .text-description h2 {
+  font-size: var(--text-description-h2-desktop-size);
+  line-height: 1em;
+}
+
+.content .text-description p {
+  font-size: var(--text-description-p-desktop-size);
+  line-height: 1.5rem;
+  max-width: 700px;
+  min-width: 400px;
+  margin: 3em 0;
+}
+
+.content .text-description a {
+  font-size: 20px;
+  text-decoration: none;
+  border: 2px solid var(--main-text-color);
+  line-height: 1em;
+  padding: 10px 30px;
+  border-radius: 30px;
+  /* cursor: pointer; */
+  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3),
+    -1px -1px 8px rgba(255, 255, 255, 0.3);
+  transition: 0.3s;
+}
+
+.content .text-description a:hover {
+  background: var(--main-color);
+  letter-spacing: 5px;
+  box-shadow: none;
+}
+
+.content .text-description a:active {
+  background: #111;
+  letter-spacing: 5px;
+  box-shadow: none;
+}
+
+
+@media (max-height: 1000px) {
+  :root {
+    font-size: 16px;
   }
 }
 
-/* @media (max-width:768px) {
+@media (max-width: 1200px) {
   .main-structure {
-   font-size: var(--main-phone-font-size);
+    font-size: var(--main-pad-font-size);
+  }
+
+  .main-structure header,
+  .main-structure .content,
+  .main-structure footer {
+    padding: var(--screen-pad-padding-top-bottom) var(--screen-pad-padding-left-right);
+    /* transition: 0.5s; */
+  }
+
+  .main-structure header .menu-logo {
+    width: var(--header-toggle-pad-width);
+    height: var·(--header-toggle-pad-width);
+    background-size: var(--header-toggle-pad-width);
+  }
+
+  .main-structure footer a img {
+    filter: invert(1);
+    width: var(--footer-icon-pad-with);
+  }
+
+  .content .text-description h1 {
+    font-size: var(--text-description-h1-pad-size);
+    line-height: 1em;
+  }
+
+  .content .text-description h2 {
+    font-size: var(--text-description-h2-pad-size);
+    line-height: 1em;
+  }
+
+  .content .text-description p {
+    font-size: var(--text-description-p-pad-size);
+    line-height: 1.5rem;
+    max-width: 600px;
+    min-width: 400px;
+    /* text-align: justify; */
+    margin: 2em 0;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .main-structure {
+    font-size: var(--main-phone-font-size);
   }
 } */
